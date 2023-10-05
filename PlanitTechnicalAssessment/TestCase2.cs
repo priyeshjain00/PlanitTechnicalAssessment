@@ -39,7 +39,7 @@ namespace PlanitTechnicalAssessment
 
             var contact = new Contact();
 
-            testConfig.ImplicitWait(5*1000);
+            testConfig.ImplicitWait(5 * 1000);
 
             contact.Forename.InnerText = forename;
             contact.Email.InnerText = email;
@@ -47,12 +47,12 @@ namespace PlanitTechnicalAssessment
 
             contact.Submit.Click();
 
-            Assert.AreEqual("Sending Feedback", contact.sendingFeedback.InnerText);
+            Assert.That(contact.sendingFeedback.InnerText, Is.EqualTo("Sending Feedback"), "Ensure that deedback is being submitted");
 
-            testConfig.ImplicitWait(15*1000);
+            testConfig.ImplicitWait(15 * 1000);
             //testConfig.FluentWait(contact.SuccessAlertMesage.element);
 
-            Assert.AreEqual($"Thanks {forename}, we appreciate your feedback.", contact.SuccessAlertMesage.InnerText, "Once feedback is submitted succesfully, a success message is expected");
+            Assert.That(contact.SuccessAlertMesage.InnerText, Is.EqualTo($"Thanks {forename}, we appreciate your feedback."), "Once feedback is submitted succesfully, a success message should pop up on screen");
         }
 
         [TearDown]

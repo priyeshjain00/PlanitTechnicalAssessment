@@ -38,9 +38,9 @@ namespace PlanitTechnicalAssessment
             var any = contact.Submit;
             contact.Submit.Click();
 
-            Assert.That(contact.ForenameError.InnerText, Is.EqualTo("Forename is required"), "Foreman is a mandatory field so leaving it empty");
-            Assert.That(contact.EmailError.InnerText, Is.EqualTo("Email is required"), "Email is a mandatory field so leaving it empty");
-            Assert.That(contact.MessageError.InnerText, Is.EqualTo("Message is required"), "Message is a mandatory field so leaving it empty");
+            Assert.That(contact.ForenameError.InnerText, Is.EqualTo("Forename is required"), "Foreman is a mandatory field, It can't be empty");
+            Assert.That(contact.EmailError.InnerText, Is.EqualTo("Email is required"), "Email is a mandatory field, It can't be empty");
+            Assert.That(contact.MessageError.InnerText, Is.EqualTo("Message is required"), "Message is a mandatory, It can't be empty");
 
             contact.Forename.InnerText = "Priyesh";
             contact.Email.InnerText = "priyesh.jain@planit.co.nz";

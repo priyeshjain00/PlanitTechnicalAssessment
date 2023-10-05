@@ -54,7 +54,7 @@ namespace PlanitTechnicalAssessment
 
             var cart = new Cart();
             var totalPurchaseAmount = double.Parse(cart.Total.InnerText.Split("Total:").LastOrDefault());
-            Assert.That(totalPurchaseAmount, Is.EqualTo(stuffedFrogTotalPrice + fluffyBunnyTotalPrice + valentineBearTotalPrice), "The cart total should be equal to sub total of each purchased item");
+            Assert.That(totalPurchaseAmount, Is.EqualTo(stuffedFrogTotalPrice + fluffyBunnyTotalPrice + valentineBearTotalPrice), "The cart total should be equal to sum of sub total of each purchased item");
         }
 
         private static double BuyFluffyBunny(Shop shop, double fluffyBunnyTotalPrice)
