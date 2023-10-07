@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using PlanitTechnicalAssessment.TestFrameWork;
 using System.Globalization;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace PlanitTechnicalAssessment
             Shop shop = new Shop();
             shop.GoTo();
 
+            testConfig.ImplicitWait(15*1000);
+
             //Buy 2 stuffed Frog
             double stuffedFrogTotalPrice = 0.00;
             for (int NumberOfItems = 0; NumberOfItems < 2; NumberOfItems++)
@@ -46,7 +49,7 @@ namespace PlanitTechnicalAssessment
             }
 
             shop.Cart.Click();
-            testConfig.ImplicitWait(1*500);
+            testConfig.ImplicitWait(1 * 500);
 
             var cart = new Cart();
             var totalPurchaseAmount = double.Parse(cart.Total.InnerText.Split("Total:").LastOrDefault());
@@ -74,10 +77,14 @@ namespace PlanitTechnicalAssessment
             return fluffyBunnyTotalPrice;
         }
 
+
+        /// <summary>
+        /// close borser and take screenshot. Can add additional cleanups here
+        /// </summary>
         [TearDown]
         public void TearDown()
         {
-            testConfig.DisposeTestData(); // Closes brower but any additional clean up required can be added here
+            testConfig.cleanup();
         }
     }
 }

@@ -55,10 +55,13 @@ namespace PlanitTechnicalAssessment
             Assert.That(contact.SuccessAlertMesage.InnerText, Is.EqualTo($"Thanks {forename}, we appreciate your feedback."), "Once feedback is submitted succesfully, a success message should pop up on screen");
         }
 
+        /// <summary>
+        /// close borser and take screenshot. Can add additional cleanups here
+        /// </summary>
         [TearDown]
         public void TearDown()
         {
-            testConfig.DisposeTestData(); // Closes brower but any additional clean up required can be added here
+            testConfig.cleanup();
         }
     }
 }

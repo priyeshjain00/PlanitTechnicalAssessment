@@ -52,10 +52,13 @@ namespace PlanitTechnicalAssessment
             Assert.That(contact.MessageError.Exists, Is.False, "Ensure that Message Error does not exist");
         }
 
+        /// <summary>
+        /// close borser and take screenshot. Can add additional cleanups here
+        /// </summary>
         [TearDown]
         public void TearDown()
         {
-            testConfig.DisposeTestData(); // Closes brower but any additional clean up required can be added here
+            testConfig.cleanup();
         }
     }
 }
